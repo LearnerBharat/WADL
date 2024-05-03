@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  min-height: 100vh; /* Ensure the body fills the viewport height */
+  background-color: azure;
+}
+
+.body table {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.logo {
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.nav {
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-items div {
+  padding: 5px;
+  margin: 5px;
+}
+
+.footer {
+  background-color: bisque;
+  padding: 20px; /* Add padding to the footer content */
+  position: fixed; /* Fixed position to stick it at the bottom */
+  width: 100%; /* Make it span the entire width */
+  bottom: 0;
+}

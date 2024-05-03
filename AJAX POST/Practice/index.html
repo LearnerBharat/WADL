@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <title>User Registration</title>
+    <style>
+      body {
+        background-color: aliceblue;
+      }
+      .container {
+        background-color: aquamarine;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+        padding: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="text-center">User Registration</h2>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            id="name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            class="form-control"
+            id="username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input
+            type="number"
+            name="age"
+            class="form-control"
+            id="age"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="password"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input
+            type="number"
+            name="phone"
+            class="form-control"
+            id="phone"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input
+            type="text"
+            name="city"
+            class="form-control"
+            id="city"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <input
+            type="text"
+            name="country"
+            class="form-control"
+            id="country"
+            required
+          />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary mr-2">Register</button>
+          <button type="button" class="btn btn-secondary mr-2" id="clearBtn">
+            Clear
+          </button>
+        </div>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#registrationForm").submit(function (event) {
+          event.preventDefault();
+          const name = $("#name").val();
+          const username = $("#username").val();
+          const age = $("#age").val();
+          const email = $("#email").val();
+          const password = $("#password").val();
+          const phone = $("#phone").val();
+          const city = $("#city").val();
+          const country = $("#country").val();
+          if (
+            name &&
+            username &&
+            age &&
+            email &&
+            password &&
+            phone &&
+            city &&
+            country
+          ) {
+            let postObject = {
+              name: { first: name, last: "" },
+              login: { username: username },
+              dob: { age: age },
+              email: email,
+              phone: phone,
+              location: { city: city, country: country },
+            };
+            let storedUser = JSON.parse(localStorage.getItem("users")) || [];
+            storedUser.unshift(postObject);
+            localStorage.setItem("users", JSON.stringify(storedUser));
+            window.location.href = "data_list.html";
+          } else {
+            alert("Please fill in all the required fields.");
+          }
+        });
+        $("#clearBtn").click(function () {
+          $(
+            "input[type='text'], input[type='number'], input[type='email'], input[type='password']"
+          ).val("");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+
+.sidebar-war{
+    width:270px !important;
+    top: 54px !important;
+}
+
+
+@media (min-width:992px){
+    
+    .sidebar-war{
+        transform: none !important;
+        visibility: visible !important;
+        
+    }
+    .main{
+        margin-left: 275px;
+        margin-top: 5px;
+        width: auto;
+    }
+    .dash-hide{
+        display: none;
+    }
+    
+    
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+
+
+}
+li{
+   padding:10px;
+   margin: 5px;
+   transition: 1s;
+   
+}
+li a{
+    text-decoration: none;
+    
+    color: black;
+}
+
+li:hover{
+    background: rgba(3, 3, 3, 0.381);
+    box-shadow: 2px 2px 2px black;
+    transform: scale(1.1);
+}
+
+
+i{
+    padding: 5px;
+}
+
+.row{
+margin:5px;
+}
